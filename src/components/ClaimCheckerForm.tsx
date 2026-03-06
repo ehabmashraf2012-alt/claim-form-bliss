@@ -14,8 +14,6 @@ type Step =
   | "claim_result"
   | "contact_details"
   | "summary";
-  | "contact_details"
-  | "summary";
 
 type ClaimStrength = "strong" | "possible";
 
