@@ -69,7 +69,12 @@ const ClaimCheckerForm = () => {
 
   const handleLetter = () => {
     if (!letter) return;
-    goToStep("tenancy_agreement", 4);
+    if (letter === "yes") {
+      goToStep("no_claim", 3);
+    } else {
+      setClaimStrength(letter === "not_sure" ? "possible" : "strong");
+      goToStep("claim_combined", 4);
+    }
   };
 
   const handleTenancyAgreement = () => {
