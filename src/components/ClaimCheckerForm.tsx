@@ -59,7 +59,7 @@ const ClaimCheckerForm = () => {
     if (!scheme) return;
     if (scheme === "yes") {
       goToStep("no_claim", 2);
-    } else if (scheme === "late") {
+    } else if (scheme === "late" || scheme === "no") {
       setClaimStrength("strong");
       goToStep("claim_combined", 3);
     } else {
