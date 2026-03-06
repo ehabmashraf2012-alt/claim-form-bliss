@@ -56,7 +56,11 @@ const ClaimCheckerForm = () => {
 
   const handleScheme = () => {
     if (!scheme) return;
-    goToStep("letter", 3);
+    if (scheme === "yes") {
+      goToStep("no_claim", 2);
+    } else {
+      goToStep("letter", 3);
+    }
   };
 
   const handleLetter = () => {
