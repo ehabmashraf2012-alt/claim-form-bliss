@@ -351,6 +351,12 @@ const ClaimCheckerForm = () => {
               </div>
             </div>
 
+            <div className="mb-6 space-y-3 text-sm text-muted-foreground">
+              <p>Your claim checker is now complete, tap the button below to submit your details to our team.</p>
+              <p>We will then run checks on your deposit and respond to you via email, phone or WhatsApp with the status of your claim and the potential value.</p>
+              <p>You are then free to not proceed if you wish, ask any questions about our process or continue with your claim.</p>
+            </div>
+
             <Button
               onClick={handleSubmit}
               disabled={!depositSize || !postcode || !depositDate || !tenancyStartDate || !firstName || !surname || !phone || !email}
