@@ -136,26 +136,7 @@ const ClaimCheckerForm = () => {
     </div>
   );
 
-  if (submitted) {
-    return (
-      <div className="w-full max-w-xl mx-auto p-8">
-        <div className="bg-card rounded-lg shadow-md p-8 text-center">
-          <div className="text-4xl mb-4">✅</div>
-          <h2 className="text-2xl font-bold text-foreground mb-2">
-            Thank you!
-          </h2>
-          <p className="text-muted-foreground mb-6">
-            Your claim checker has been submitted. We will run checks on your
-            deposit and respond to you via email, phone or WhatsApp with the
-            status of your claim and the potential value.
-          </p>
-          <Button onClick={resetForm} variant="outline">
-            Submit another claim
-          </Button>
-        </div>
-      </div>
-    );
-  }
+  // Thank you modal rendered below in JSX
 
   return (
     <div className="w-full max-w-xl mx-auto p-8">
