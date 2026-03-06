@@ -69,7 +69,12 @@ const ClaimCheckerForm = () => {
 
   const handleLetter = () => {
     if (!letter) return;
-    goToStep("tenancy_agreement", 4);
+    if (letter === "yes") {
+      goToStep("no_claim", 3);
+    } else {
+      setClaimStrength(letter === "not_sure" ? "possible" : "strong");
+      goToStep("claim_combined", 4);
+    }
   };
 
   const handleTenancyAgreement = () => {
@@ -344,6 +349,12 @@ const ClaimCheckerForm = () => {
                 <p className="text-xs text-muted-foreground mb-1 italic">We send the results of our claim checker to your email, please check your junk folder.</p>
                 <Input id="c-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
+            </div>
+
+            <div className="mb-6 space-y-3 text-sm text-muted-foreground">
+              <p>Your claim checker is now complete, tap the button below to submit your details to our team.</p>
+              <p>We will then run checks on your deposit and respond to you via email, phone or WhatsApp with the status of your claim and the potential value.</p>
+              <p>You are then free to not proceed if you wish, ask any questions about our process or continue with your claim.</p>
             </div>
 
             <Button
