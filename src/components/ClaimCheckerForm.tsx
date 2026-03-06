@@ -10,6 +10,7 @@ type Step =
   | "scheme"
   | "letter"
   | "tenancy_agreement"
+  | "claim_combined"
   | "claim_result"
   | "contact_details"
   | "summary";
@@ -58,6 +59,9 @@ const ClaimCheckerForm = () => {
     if (!scheme) return;
     if (scheme === "yes") {
       goToStep("no_claim", 2);
+    } else if (scheme === "late") {
+      setClaimStrength("strong");
+      goToStep("claim_combined", 3);
     } else {
       goToStep("letter", 3);
     }
@@ -288,8 +292,71 @@ const ClaimCheckerForm = () => {
             </div>
           </div>
         )}
+        {/* Combined: deposit details + contact on one page */}
+        {step === "claim_combined" && (
+          <div>
+            {stepIndicator}
+            <div className="mb-6 p-4 rounded-md bg-primary/10 border border-primary/20">
+              <p className="text-foreground font-semibold text-lg">
+                👍 You have a claim, please enter your deposit details below and we will confirm the minimum and maximum value of your claim
+              </p>
+            </div>
 
-        {/* Step 5: Claim result + deposit details */}
+            <div className="space-y-4 mb-8">
+              <div>
+                <Label htmlFor="c-deposit-size">Size of your deposit<span className="text-destructive">*</span></Label>
+                <Input id="c-deposit-size" type="text" placeholder="£" value={depositSize} onChange={(e) => setDepositSize(e.target.value)} />
+              </div>
+              <div>
+                <Label htmlFor="c-postcode">Postcode of rented property<span className="text-destructive">*</span></Label>
+                <p className="text-xs text-muted-foreground mb-1 italic">Please note: we can't claim against deposits paid in Northern Ireland, Ireland or Scotland.</p>
+                <Input id="c-postcode" type="text" placeholder="e.g. SW1A 1AA" value={postcode} onChange={(e) => setPostcode(e.target.value)} />
+              </div>
+              <div>
+                <Label htmlFor="c-deposit-date">When did you pay the deposit?<span className="text-destructive">*</span></Label>
+                <p className="text-xs text-muted-foreground mb-1 italic">We can only claim against deposits paid in the past six years.</p>
+                <Input id="c-deposit-date" type="date" value={depositDate} onChange={(e) => setDepositDate(e.target.value)} />
+              </div>
+              <div>
+                <Label htmlFor="c-tenancy-start">What date did the Tenancy start?<span className="text-destructive">*</span></Label>
+                <Input id="c-tenancy-start" type="date" value={tenancyStartDate} onChange={(e) => setTenancyStartDate(e.target.value)} />
+              </div>
+            </div>
+
+            <h3 className="text-lg font-semibold text-foreground mb-4">
+              👤 Please enter your contact details below
+            </h3>
+            <div className="space-y-4 mb-6">
+              <div>
+                <Label htmlFor="c-first-name">Your First Name<span className="text-destructive">*</span></Label>
+                <Input id="c-first-name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+              </div>
+              <div>
+                <Label htmlFor="c-surname">Your Surname<span className="text-destructive">*</span></Label>
+                <Input id="c-surname" value={surname} onChange={(e) => setSurname(e.target.value)} />
+              </div>
+              <div>
+                <Label htmlFor="c-phone">Your Phone Number<span className="text-destructive">*</span></Label>
+                <Input id="c-phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
+              </div>
+              <div>
+                <Label htmlFor="c-email">Your Email Address<span className="text-destructive">*</span></Label>
+                <p className="text-xs text-muted-foreground mb-1 italic">We send the results of our claim checker to your email, please check your junk folder.</p>
+                <Input id="c-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              </div>
+            </div>
+
+            <Button
+              onClick={handleSubmit}
+              disabled={!depositSize || !postcode || !depositDate || !tenancyStartDate || !firstName || !surname || !phone || !email}
+              className="w-full"
+            >
+              Submit Form
+            </Button>
+          </div>
+        )}
+
+
         {step === "claim_result" && (
           <div>
             {stepIndicator}
