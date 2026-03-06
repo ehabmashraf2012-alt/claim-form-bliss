@@ -139,7 +139,7 @@ const ClaimCheckerForm = () => {
   // Thank you modal rendered below in JSX
 
   return (
-    <div className="w-full max-w-xl mx-auto p-8">
+    <div className="w-full max-w-3xl mx-auto p-8">
       <div className="bg-card rounded-lg shadow-md p-8">
         {/* Step 1: Deposit paid? */}
         {step === "deposit_paid" && (
