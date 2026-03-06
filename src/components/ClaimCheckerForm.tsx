@@ -10,7 +10,10 @@ type Step =
   | "scheme"
   | "letter"
   | "tenancy_agreement"
+  | "claim_combined"
   | "claim_result"
+  | "contact_details"
+  | "summary";
   | "contact_details"
   | "summary";
 
@@ -58,6 +61,9 @@ const ClaimCheckerForm = () => {
     if (!scheme) return;
     if (scheme === "yes") {
       goToStep("no_claim", 2);
+    } else if (scheme === "late") {
+      setClaimStrength("strong");
+      goToStep("claim_combined", 3);
     } else {
       goToStep("letter", 3);
     }
