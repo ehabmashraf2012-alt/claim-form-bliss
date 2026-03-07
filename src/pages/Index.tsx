@@ -26,12 +26,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroBg})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 to-secondary/70" />
+      <section className="relative overflow-hidden bg-[hsl(40,40%,95%)]">
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(40,30%,93%)] to-[hsl(40,40%,95%)]" />
 
         <div className="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 items-center">
           {/* Left: Headline + USPs */}
