@@ -26,17 +26,13 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroBg})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 to-secondary/70" />
+      <section className="relative overflow-hidden bg-[hsl(40,40%,95%)]">
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(40,30%,93%)] to-[hsl(40,40%,95%)]" />
 
         <div className="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 items-center">
           {/* Left: Headline + USPs */}
           <div className="px-6 py-16 lg:py-24 lg:px-12">
-            <h1 className="font-[Montserrat] text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary-foreground leading-tight mb-8">
+            <h1 className="font-[Montserrat] text-3xl md:text-4xl lg:text-5xl font-extrabold text-secondary leading-tight mb-8">
               Claim up to 3 times your deposit back for each breach plus the return of your deposit.
             </h1>
 
@@ -51,7 +47,7 @@ const Index = () => {
                   className="flex items-center gap-3 border-t border-primary/30 pt-4"
                 >
                   <Icon className="h-5 w-5 text-primary flex-shrink-0" />
-                  <span className="text-primary-foreground font-[Montserrat] font-semibold text-lg">{text}</span>
+                  <span className="text-secondary font-[Montserrat] font-semibold text-lg">{text}</span>
                 </div>
               ))}
             </div>
@@ -65,20 +61,20 @@ const Index = () => {
 
           {/* Right: Testimonial Carousel */}
           <div className="px-6 pb-16 lg:py-24 lg:px-12">
-            <div className="bg-secondary/40 backdrop-blur-sm border border-primary/20 rounded-xl p-8">
+            <div className="bg-card border border-border rounded-xl p-8 shadow-md">
               <div className="flex items-center gap-1 mb-3">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-5 w-5 fill-primary text-primary" />
                 ))}
               </div>
-              <h3 className="text-primary-foreground font-[Montserrat] font-bold text-2xl mb-4">{t.title}</h3>
-              <p className="text-primary-foreground/80 italic text-lg mb-4">"{t.quote}"</p>
-              <p className="text-primary-foreground/60 font-medium">- {t.name}</p>
+              <h3 className="text-secondary font-[Montserrat] font-bold text-2xl mb-4">{t.title}</h3>
+              <p className="text-muted-foreground italic text-lg mb-4">"{t.quote}"</p>
+              <p className="text-muted-foreground font-medium">- {t.name}</p>
 
               <div className="flex items-center gap-3 mt-6">
                 <button
                   onClick={prevTestimonial}
-                  className="p-2 rounded-full border border-primary/30 text-primary-foreground/60 hover:text-primary-foreground hover:border-primary/60 transition-colors"
+                  className="p-2 rounded-full border border-border text-muted-foreground hover:text-secondary hover:border-primary/60 transition-colors"
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </button>
@@ -87,13 +83,13 @@ const Index = () => {
                     <button
                       key={i}
                       onClick={() => setTestimonialIndex(i)}
-                      className={`h-2 rounded-full transition-all ${i === testimonialIndex ? "w-6 bg-primary" : "w-2 bg-primary-foreground/30"}`}
+                      className={`h-2 rounded-full transition-all ${i === testimonialIndex ? "w-6 bg-primary" : "w-2 bg-muted-foreground/30"}`}
                     />
                   ))}
                 </div>
                 <button
                   onClick={nextTestimonial}
-                  className="p-2 rounded-full border border-primary/30 text-primary-foreground/60 hover:text-primary-foreground hover:border-primary/60 transition-colors"
+                  className="p-2 rounded-full border border-border text-muted-foreground hover:text-secondary hover:border-primary/60 transition-colors"
                 >
                   <ChevronRight className="h-4 w-4" />
                 </button>
