@@ -61,20 +61,20 @@ const Index = () => {
 
           {/* Right: Testimonial Carousel */}
           <div className="px-6 pb-16 lg:py-24 lg:px-12">
-            <div className="bg-secondary/40 backdrop-blur-sm border border-primary/20 rounded-xl p-8">
+            <div className="bg-card border border-border rounded-xl p-8 shadow-md">
               <div className="flex items-center gap-1 mb-3">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-5 w-5 fill-primary text-primary" />
                 ))}
               </div>
-              <h3 className="text-primary-foreground font-[Montserrat] font-bold text-2xl mb-4">{t.title}</h3>
-              <p className="text-primary-foreground/80 italic text-lg mb-4">"{t.quote}"</p>
-              <p className="text-primary-foreground/60 font-medium">- {t.name}</p>
+              <h3 className="text-secondary font-[Montserrat] font-bold text-2xl mb-4">{t.title}</h3>
+              <p className="text-muted-foreground italic text-lg mb-4">"{t.quote}"</p>
+              <p className="text-muted-foreground font-medium">- {t.name}</p>
 
               <div className="flex items-center gap-3 mt-6">
                 <button
                   onClick={prevTestimonial}
-                  className="p-2 rounded-full border border-primary/30 text-primary-foreground/60 hover:text-primary-foreground hover:border-primary/60 transition-colors"
+                  className="p-2 rounded-full border border-border text-muted-foreground hover:text-secondary hover:border-primary/60 transition-colors"
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </button>
@@ -83,13 +83,13 @@ const Index = () => {
                     <button
                       key={i}
                       onClick={() => setTestimonialIndex(i)}
-                      className={`h-2 rounded-full transition-all ${i === testimonialIndex ? "w-6 bg-primary" : "w-2 bg-primary-foreground/30"}`}
+                      className={`h-2 rounded-full transition-all ${i === testimonialIndex ? "w-6 bg-primary" : "w-2 bg-muted-foreground/30"}`}
                     />
                   ))}
                 </div>
                 <button
                   onClick={nextTestimonial}
-                  className="p-2 rounded-full border border-primary/30 text-primary-foreground/60 hover:text-primary-foreground hover:border-primary/60 transition-colors"
+                  className="p-2 rounded-full border border-border text-muted-foreground hover:text-secondary hover:border-primary/60 transition-colors"
                 >
                   <ChevronRight className="h-4 w-4" />
                 </button>
