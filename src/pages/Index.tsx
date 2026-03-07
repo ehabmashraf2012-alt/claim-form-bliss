@@ -32,7 +32,7 @@ const Index = () => {
         <div className="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 items-center">
           {/* Left: Headline + USPs */}
           <div className="px-6 py-16 lg:py-24 lg:px-12">
-            <h1 className="font-[Montserrat] text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary-foreground leading-tight mb-8">
+            <h1 className="font-[Montserrat] text-3xl md:text-4xl lg:text-5xl font-extrabold text-secondary leading-tight mb-8">
               Claim up to 3 times your deposit back for each breach plus the return of your deposit.
             </h1>
 
@@ -47,7 +47,7 @@ const Index = () => {
                   className="flex items-center gap-3 border-t border-primary/30 pt-4"
                 >
                   <Icon className="h-5 w-5 text-primary flex-shrink-0" />
-                  <span className="text-primary-foreground font-[Montserrat] font-semibold text-lg">{text}</span>
+                  <span className="text-secondary font-[Montserrat] font-semibold text-lg">{text}</span>
                 </div>
               ))}
             </div>
